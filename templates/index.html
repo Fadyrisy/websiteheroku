@@ -1,1 +1,30 @@
 
+<!doctype html>
+<html>
+<head>
+  <link rel="shortcut icon" type="image/png" href="alien.png" id='link'>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>One monitor to rule them all</title>
+  <style>
+    body {
+      background-color: black;
+      color: aqua;
+      font-family: monospace;
+    }
+  </style>
+</head>
+<body>
+  <h1 id='title'>Pinging sites: </h1>
+  <ul id='sites'>
+  </ul>
+  <script>
+    var sites = document.getElementById('sites')
+    var bot_sites = {{ bot_urls|safe }}
+    for(var i = 0; i < bot_sites.length; i++) {
+      var bot_site = bot_sites[i].replace('[', '').replace(']', '')
+      sites.innerHTML += '<li><a>'+ bot_site + '</a></li>'
+    }
+  </script>
+</body>
+</html>
